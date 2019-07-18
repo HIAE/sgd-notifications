@@ -2,8 +2,8 @@ var env = require('dotenv').load(),
     server = require('http').Server(),
     io = require('socket.io')(server),
     Redis = require('ioredis'),
-    redis = new Redis(),
-    ip = '127.0.0.1';
+    redis = new Redis(6379, 'redis'), // ip redis
+    ip = 'notifications'; // ip notifications
 
 redis.psubscribe("*", function(){
     console.log('Inscrito');
